@@ -100,16 +100,16 @@ def hemisphere_img(browser):
     # 3. Write code to retrieve the image urls and titles for each hemisphere.
 
     #retrieve a list of the thumnail elements with links
-    try:
-        hemi_list = browser.find_by_css('img[class="thumb"]')
-    except BaseException:
-        return None
+    hemi_list = browser.find_by_css('img[class="thumb"]')
 
     #loop through the thumbnails
     for thumbnail in hemi_list:
         
         #access hemisphere webpage
-        thumbnail.click()
+        try:
+            thumbnail.click()
+        except:
+            continue
         
         hemi_dict = {}
         
